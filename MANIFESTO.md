@@ -12,5 +12,4 @@
 + Save Python web-crawlers as snippets.
 + Create customized email and SMS messages with web-crawler returns as variables. For instance:
     + 'Hey! Today ePackt offers `{free_book}` for free. Weather in `{city}` is `{weather_condition}`: `{weather_max}` max,  with `{weather_clouds}` and `{weather_rain}`.'
-+ Schedule messages to sent automatically to chosen recipients.
-
++ Schedule messages to reach chosen recipients at picked intervals e.g. daily, every Monday etc.
