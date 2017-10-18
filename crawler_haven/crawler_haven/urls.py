@@ -23,5 +23,6 @@ from main_app import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^web_crawler/add$', views.WebCrawlerCreateView.as_view(), name='web_crawler_add'),
+    url(r'^web_crawler/(?P<pk>\d+)$', views.WebCrawlerDetails.as_view(), name='web_crawler_details'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

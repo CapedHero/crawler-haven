@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  View Web Crawler
+{% endblock %}
+
+{% block content %}
+  <h2>{{ web_crawler.title }}</h2>
+  <p>{{ web_crawler.description }}</p>
+
+  <form action='' method='post'>
+    {% csrf_token %}
+    <label>
+      <textarea name='' id='' cols='30' rows='10'>{{ script_text }}</textarea>
+    </label>
+    <input type='submit'>
+  </form>
+{% endblock %}
