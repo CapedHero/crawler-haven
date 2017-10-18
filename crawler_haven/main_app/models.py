@@ -11,4 +11,4 @@ class WebCrawler(models.Model):
     user = models.ForeignKey(User)
     title = models.CharField(max_length=64)
     description = models.CharField(max_length=256)
-    web_crawler = models.FileField(upload_to=user_directory_path)
+    script = models.FileField(upload_to=user_directory_path)
