@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from main_app import views
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls, name='admin'),
+    url(r'^web_crawler/add$', views.WebCrawlerCreateView.as_view(), name='web_crawler_add'),
 ]

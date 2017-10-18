@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import CreateView
 
-# Create your views here.
+from main_app.models import WebCrawler
+
+
+class WebCrawlerCreateView(CreateView):
+    model = WebCrawler
+    fields = '__all__'
+    success_url = 'admin'
