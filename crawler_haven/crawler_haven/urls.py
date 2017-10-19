@@ -32,5 +32,6 @@ urlpatterns = [
         views.WebCrawlerDetails.as_view(),
         name='web_crawler_details'
     ),
+    url(r'^web_crawler/list$', views.WebCrawlerList.as_view(), name='web_crawler_list'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

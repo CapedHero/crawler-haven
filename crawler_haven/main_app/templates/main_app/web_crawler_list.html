@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <ul>
+    {% for web_crawler in object_list %}
+      <li>{{ web_crawler.title }} - {{ web_crawler.description }}</li>
+    {% empty %}
+      <li>No web crawlers yet! Get back to work!</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

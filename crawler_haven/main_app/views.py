@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views import View
+from django.views.generic import ListView
 
 from main_app.exec_ext_script import execute_ext_script
 from main_app.forms import WebCrawlerForm
@@ -57,3 +58,11 @@ class WebCrawlerDetails(LoginRequiredMixin, View):
         context.update(execute_ext_script('media/main_app/user_1/weather_tvnmeteo.py'))
 
         return render(request, 'main_app/web_crawler_details.html', context)
+
+
+class WebCrawlerList(LoginRequiredMixin, ListView):
+    model = WebCrawler
+    template_name = 'main_app/web_crawler_list.html'
+
+    def get_queryset(self):
+        return WebCrawler.objects.filter(user=self.request.user)
