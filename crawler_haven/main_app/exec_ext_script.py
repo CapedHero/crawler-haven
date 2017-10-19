@@ -4,7 +4,7 @@ import sys
 import simplejson
 
 
-def execute_script(file_path):
+def execute_ext_script(file_path):
     with open(file_path) as f:
         script = f.read()
 
@@ -13,8 +13,10 @@ def execute_script(file_path):
     exec(script)
     sys.stdout = stdout_backup
 
-    return stdout_redirected.getvalue().split('\n')[0]
+    return simplejson.loads(stdout_redirected.getvalue().split('\n')[0])
 
 
 if __name__ == '__main__':
-    print(simplejson.loads(execute_script('weather_tvnmeteo.py')))
+    test_run = execute_ext_script('weather_tvnmeteo.py')
+    print(test_run)
+    print(type(test_run))
