@@ -4,7 +4,10 @@
 
   <ul>
     {% for web_crawler in object_list %}
-      <li>{{ web_crawler.title }} - {{ web_crawler.description }}</li>
+      <li><a href='{% url "web_crawler_details" pk=web_crawler.id %}'>
+        {{ web_crawler.title }}</a> -
+        {{ web_crawler.description }}
+      </li>
     {% empty %}
       <li>No web crawlers yet! Get back to work!</li>
     {% endfor %}
