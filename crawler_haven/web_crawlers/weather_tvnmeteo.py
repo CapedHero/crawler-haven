@@ -1,3 +1,5 @@
+import simplejson
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -16,8 +18,9 @@ weather_max = day_box_elements[22]
 weather_min = night_box_elements[22]
 weather_rain = day_box_elements[56]
 
-if __name__ == '__main__':
-    print(weather_overall)
-    print(weather_max)
-    print(weather_min)
-    print(weather_rain)
+print(simplejson.dumps({
+    'weather_overall': weather_overall,
+    'weather_max': weather_max,
+    'weather_min': weather_min,
+    'weather_rain': weather_rain,
+}))

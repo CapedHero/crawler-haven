@@ -32,6 +32,7 @@ class WebCrawlerDetails(View):
         web_crawler_path = os.path.join(BASE_DIR, 'media', str(web_crawler.script))
         with open(web_crawler_path, 'r') as f:
             script_text = f.read()
+
         context = {
             'web_crawler': web_crawler,
             'script_text': script_text,
