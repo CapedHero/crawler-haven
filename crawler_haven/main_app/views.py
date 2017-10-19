@@ -1,5 +1,7 @@
 import os
 
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.views import View
 
@@ -9,6 +11,19 @@ from main_app.models import WebCrawler
 from main_app.exec_ext_script import execute_ext_script
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'registration/signup.html', {'form': form})
 
 
 class WebCrawlerCreateView(View):
