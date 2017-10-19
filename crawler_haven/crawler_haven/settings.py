@@ -123,4 +123,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # Login settings
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'web_crawler_lists'
+LOGIN_REDIRECT_URL = 'web_crawler_list'
