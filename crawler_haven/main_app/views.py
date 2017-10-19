@@ -1,14 +1,13 @@
 import os
 
-from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views import View
 
+from main_app.exec_ext_script import execute_ext_script
 from main_app.forms import WebCrawlerForm
 from main_app.models import WebCrawler
-
-from main_app.exec_ext_script import execute_ext_script
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -26,7 +25,7 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
-class WebCrawlerCreateView(View):
+class WebCrawlerCreateView(LoginRequiredMixin, View):
     def get(self, request):
         form = WebCrawlerForm
         return render(request, 'main_app/web_crawler_form.html', {'form': form})
@@ -43,7 +42,7 @@ class WebCrawlerCreateView(View):
             return render(request, 'main_app/web_crawler_form.html', {'form': form})
 
 
-class WebCrawlerDetails(View):
+class WebCrawlerDetails(LoginRequiredMixin, View):
     def get(self, request, pk):
         web_crawler = WebCrawler.objects.get(pk=pk)
         web_crawler_path = os.path.join(BASE_DIR, 'media', str(web_crawler.script))
