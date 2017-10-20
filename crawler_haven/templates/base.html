@@ -12,6 +12,12 @@
         integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
         crossorigin="anonymous">
 
+  <!-- highlight.js -->
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
   <!-- Crawler Haven CSS -->
   <link rel='stylesheet' href='{% static "css/style.css" %}'>
 
@@ -44,7 +50,7 @@
 
   <div class='container'>
     <article>
-    {% block content %}{% endblock %}
+      {% block content %}{% endblock %}
     </article>
   </div>
 

@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  View Web Crawler
+  {{ web_crawler.title }}
 {% endblock %}
 
 {% block content %}
   <h2>{{ web_crawler.title }}</h2>
   <p>{{ web_crawler.description }}</p>
+  <pre><code class="python">{{ script_text|safe }}</code></pre>
 
-  <form action='' method='post'>
-    {% csrf_token %}
-    <label>
-      <textarea name='' id='' cols='30' rows='10'>{{ script_text }}</textarea>
-    </label>
-    <input type='submit'>
-  </form>
+  <h4>TEST: passed data from the web crawler</h4>
+  <ul>
+    <li>weather_overall: {{ weather_overall }}</li>
+    <li>weather max: {{ weather_max }}</li>
+    <li>weather min: {{ weather_min }}</li>
+    <li>weather rain: {{ weather_rain }}</li>
+  </ul>
 {% endblock %}
