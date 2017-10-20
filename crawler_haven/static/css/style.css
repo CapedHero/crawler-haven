@@ -2,6 +2,10 @@ article {
   margin-top: 2em;
 }
 
+h2 {
+  margin: 25px 0;
+}
+
 .navbar-expand-lg > .container {
   padding-left:  15px;
   padding-right: 15px;
@@ -9,4 +13,9 @@ article {
 
 .no-padding {
   padding: 0;
+}
+
+.btn-web-crawler {
+  margin: 15px 0;
+  width:  15em;
 }

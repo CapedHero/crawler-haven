@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-  <ul>
+  <h2>Web Crawlers</h2>
     {% for web_crawler in object_list %}
-      <li><a href='{% url "web_crawler_details" pk=web_crawler.id %}'>
-        {{ web_crawler.title }}</a> -
-        {{ web_crawler.description }}
-      </li>
+      <a class="btn btn-outline-info btn-lg btn-block btn-web-crawler"
+         href='{% url "web_crawler_details" pk=web_crawler.id %}'>
+        {{ web_crawler.title }}
+      </a>
     {% empty %}
-      <li>No web crawlers yet! Get back to work!</li>
+      <p>No web crawlers yet! Get back to work!</p>
     {% endfor %}
-  </ul>
 
 {% endblock %}
