@@ -7,6 +7,9 @@
   <h2>Login</h2>
   <form class="col-md-3 no-padding" method="post">
     {% csrf_token %}
+    {{ form.non_field_errors }}
+    {{ form.username.errors }}
+    {{ form.password.errors }}
     <p>{{ form.username|addclass:'form-control' }}</p>
     <p>{{ form.password|addclass:'form-control' }}</p>
     <button class="btn btn-outline-success" type="submit">Login</button>
